@@ -1,0 +1,49 @@
+#totop {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  padding: 0px 0 15px 7px;
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  font-size: 40px;
+  color: #fff;
+  z-index: 9999;
+  box-sizing: border-box;
+  opacity: 0;
+}
+
+/* Изменение свойства opacity от 0% до 100% при прокрутке элементов по оси X */
+.slideanim {
+  visibility: hidden;
+}
+
+.slide {
+  animation-name: slide;
+  animation-duration: 1s;
+  visibility: visible;
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.parallax {
+  background-color: #185899;
+  background-image: url(https://cdn-icons-png.flaticon.com/512/4496/4496665.png),
+    url(./images/Задний\ фон.jpg);
+  background-position: 120px 500px, center -90px;
+  background-attachment: fixed, fixed;
+  background-size: 100px 100px, cover;
+  background-repeat: no-repeat, no-repeat;
+  color: #ffffff;
+  padding: 310px;
+}

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/basket.css" />
+    <link rel="shortcut icon" href="/Pagebruh.png" type="image/png" />
+    <title>BlackTea Official</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      let $j = jQuery.noConflict(true);
+
+      $j(document).ready(function () {
+        let offset = 200; // координата сдвига по оси Y
+        let duration = 300; // время выполнения
+        $j("#totop").fadeOut(0);
+        $j('a[href^="#"]:not([href="#demo"]').click(function () {
+          // если в href начинается с #, то обрабатываем клик
+          let scrollEl = $j(this).attr("href"); // возьмем содержимое атрибута href
+          if ($j(scrollEl).length != 0) {
+            // проверим существование элемента чтобы избежать ошибки
+            $j("html, body").animate(
+              { scrollTop: $j(scrollEl).offset().top },
+              500
+            ); // анимируем скроолинг к элементу scrollEl
+          }
+          return false; // выключаем стандартное действие
+        });
+
+        $j(window).scroll(function () {
+          if ($j(this).scrollTop() > offset) {
+            $j("#totop").css("opacity", "0.8"); // возвращаем прозрачность
+            $j("#totop").fadeIn(duration); // элемент плавно исчезает
+          } else {
+            $j("#totop").fadeOut(duration); // элемент плавно появляется
+          }
+
+          $j(".slideanim").each(function () {
+            // для каждого блока с классом slideanim
+            var pos = $j(this).offset().top; // считываем его координату по оси Y в окне браузера
+
+            var winTop = $j(window).scrollTop(); // количество пикселей, на которые прокручено окно
+
+            if (pos < winTop + 500) {
+              //если до верха страницы остается 500px,
+              $j(this).addClass("slide"); //добавляем к блоку класс slide с анимацией
+            }
+          });
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Make the image fully responsive */
+      .carousel-inner img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body id="myPage">
+    <div class="container-fluid header p-0">
+      <!-- <div class="container"> -->
+      <nav class="navbar navbar-expand-sm bg-white navbar-white">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link1" href="#services">Сервис</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link2" href="#team">Где мы</a>
+          </li>
+          <li class="nav-item">
+            <img class="logo" src="./images/Logo.png" />
+          </li>
+          <li class="nav-item">
+            <a class="nav-link3" href="#band">Фотографии</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link4" href="#contacts">Контакты</a>
+          </li>
+        </ul>
+        <style>
+          a.nav-link1 {
+            font-size: 35px;
+            font-family: Caveat;
+            margin-right: 45px;
+            position: relative;
+            left: 420px;
+            text-decoration: none;
+            top: 10px;
+          }
+          a.nav-link2 {
+            font-size: 35px;
+            font-family: Caveat;
+            margin-right: 45px;
+            position: relative;
+            left: 420px;
+            text-decoration: none;
+            top: 10px;
+          }
+          a.nav-link3 {
+            font-size: 35px;
+            font-family: Caveat;
+            margin-right: 45px;
+            position: relative;
+            left: 460px;
+            text-decoration: none;
+            top: 10px;
+          }
+          a.nav-link4 {
+            font-size: 35px;
+            font-family: Caveat;
+            margin-right: 45px;
+            position: relative;
+            left: 460px;
+            text-decoration: none;
+            top: 10px;
+          }
+          .logo {
+            height: 70px;
+            width: 290px;
+            position: relative;
+            left: 420px;
+          }
+          .bg-white {
+            background-color: #000000 !important;
+          }
+          a {
+            color: rgb(241, 212, 48);
+            text-decoration: none;
+            background-color: transparent;
+          }
+          a:hover {
+            color: white;
+            text-decoration: none;
+            background-color: transparent;
+            transition-duration: 2s;
+          }
+          .slide {
+            position: relative;
+            top: -185px;
+            animation-name: slide;
+            animation-duration: 1s;
+            visibility: visible;
+          }
+          .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 25px;
+            border: solid 3px white;
+          }
+        </style>
+      </nav>
+
+      <div class="jumbotron text-center parallax" id="active">
+        <h1>BlackTea</h1>
+        <p>The best tea straight from the 17th century</p>
+      </div>
+    </div>
+    <div id="img2"><img src="./images/Эффект на сайт 2.png" alt="" /></div>
+    <div id="img"><img src="./images/Эффект на сайт.png" alt="" /></div>
+    <!-- </div> -->
+    <div class="container slideanim" id="services">
+      <style>
+        #img {
+          position: relative;
+          height: 250px;
+          width: 100px;
+          left: -212px;
+          top: -285px;
+          color: rgb(255, 255, 255);
+        }
+        #img2 {
+          position: relative;
+          height: 250px;
+          width: 100px;
+          left: -212px;
+          top: -618px;
+          color: rgb(255, 255, 255);
+        }
+        h2 {
+          color: rgb(0, 0, 0);
+        }
+      </style>
+      <h2 class="text-center mt-5">Наш сервис</h2>
+      <style>
+        .col-sm-3 {
+          height: 285px;
+          width: 193px;
+          background-color: rgb(3, 152, 0);
+          margin-right: 25px;
+          border-radius: 20px;
+          position: relative;
+          left: 80px;
+          text-align: center;
+          border: solid 3px rgb(255, 255, 255);
+        }
+        .col-sm-3 h3 {
+          position: relative;
+          top: 10px;
+          color: #ffffff;
+        }
+        .col-sm-3 p {
+          position: relative;
+          top: 10px;
+          color: #ffffff;
+        }
+      </style>
+      <div class="row mt-5">
+        <div class="col-sm-3">
+          <h3>Самая быстрая доставка</h3>
+          <p>Доставим вам в городе в любую точку</p>
+          <p>
+            Быстрая доставка во все города Украины за 299.99 UAH
+          </p>
+          <p>
+            В любую точку мира за договорную цену и время!
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <h3>Наши точки по всей стране</h3>
+          <p>Мы имеем более 50-ти точек по всей стране и во всех вас готовы принять</p>
+          <p>
+            Уникальный сервис и чай в каждом регионе!
+          </p>
+          <p>
+            И частые скидки и акции на чай.
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <h3>Купить чай прямо здесь</h3>
+          <p>Вы можете купить чай прямо на сайте, посмотрите!</p>
+        </div>
+      </div>
+    </div>
+    <div class="container slideanim" id="team">
+      <h2 class="text-center mt-5">Где нас найти?</h2>
+      <div class="row align-items-center my-5 navbar-black" id="link2">
+        <div class="col-sm-4">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              class="card-img-top rounded p-3"
+              src="./images/Киев.jpg"
+              alt="Card image"
+              style="width: 100%"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Киев</h4>
+              <p class="card-text">
+              Наш магазин и чайная в Blockbuster Mall на втором этаже!
+              </p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              class="card-img-top rounded p-3"
+              src="./images/Харьков.jpg"
+              alt="Card image"
+              style="width: 100%"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Харьков</h4>
+              <p class="card-text">
+                Наш магазин и две чайных в NIKOLSKY на третьем и втором этаже!              </p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card mx-auto" style="width: 18rem">
+            <img
+              class="card-img-top rounded p-3"
+              src="./images/Одесса.jpg"
+              alt="Card image"
+              style="width: 100%"
+            />
+            <div class="card-body">
+              <h4 class="card-title">Одесса</h4>
+              <p class="card-text">
+                Наш магазин и две чайных в City Center на третьем и втором этаже!
+              </p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="band">
+      <h2 class="text-center mt-5 mb-3">Our band</h2>
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://rau.ua/wp-content/uploads/2018/10/Blockbuster.png"
+              alt="Los Angeles"
+              width="1100"
+              height="500"
+            />
+            <div class="carousel-caption">
+              <h3>Киев, где нас искать</h3>
+              <p>Ждем вас!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./images/Никольский.png"
+              alt="Chicago"
+              width="1100"
+              height="500"
+            />
+            <div class="carousel-caption">
+              <h3>Харьков, где нас искать</h3>
+              <p>Ждем вас!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./images/Сити сентр.png"
+              alt="New York"
+              width="1100"
+              height="500"
+            />
+            <div class="carousel-caption">
+              <h3>Одесса, где нас искать</h3>
+              <p>Ждем вас!</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div class="item_box">
+        <h3 class="item_title">Черный чай</h3>
+        <img src="./images/Фото черного чая.jpg" alt="" />
+        <p>Price: <span class="item_price">49.79</span> UAH</p>
+        <button class="add_item" data-id="1">Добавить</button>
+      </div>
+      <div class="item_box2">
+        <h3 class="item_title">Зеленый чай</h3>
+        <img src="./images/Фотография зеленого чая.jpg" alt="" />
+        <p>Цена: <span class="item_price">59.99</span> UAH</p>
+        <button class="add_item" data-id="5">Добавить</button>
+      </div>
+      <div class="item_box3">
+        <h3 class="item_title">Желтый чай</h3>
+        <img src="./images/Фотография желтого чая.JPG" alt="" />
+        <p>Цена: <span class="item_price">45.49</span> UAH</p>
+        <button class="add_item" data-id="3">Добавить</button>
+      </div>
+      <div class="item_box4">
+        <h3 class="item_title">Белый чай</h3>
+        <img src="./images/Фотография белого чая.jpg" alt="" />
+        <p>Цена: <span class="item_price">120.99</span> UAH</p>
+        <button class="add_item" data-id="4">Добавить</button>
+      </div>
+      <div class="item_box5">
+        <h3 class="item_title">Улун</h3>
+        <img src="./images/Фотография улуна.jpg" alt="" />
+        <p>Цена: <span class="item_price">70.99</span> UAH</p>
+        <button class="add_item" data-id="2">Добавить</button>
+      </div>
+      <div class="item_box6">
+        <h3 class="item_title">Пуэр</h3>
+        <img src="./images/Фото пуэра.jpg" alt="" />
+        <p>Цена: <span class="item_price">89.99</span> UAH</p>
+        <button class="add_item" data-id="6">Добавить</button>
+      </div>
+      <div id="a2">
+        <p>
+          <button id="checkout">Корзинка</button> &nbsp;
+          <button id="clear_cart">Почистить</button>
+        </p>
+      </div>
+      <style>
+        #checkout {
+          position: relative;
+          top: 5px;
+          left: 50px;
+          height: 45px;
+          width: 125px;
+          border-radius: 5px;
+          border-color: rgb(0, 0, 0);
+          background-color: rgb(201, 255, 201);
+          font-family: Gabriola;
+          font-size: 25px;
+        }
+        #checkout:hover {
+          position: relative;
+          top: 5px;
+          left: 50px;
+          height: 45px;
+          width: 125px;
+          border-radius: 5px;
+          border-color: rgb(0, 0, 0);
+          background-color: rgb(114, 243, 114);
+          font-family: Gabriola;
+          font-size: 25px;
+        }
+        #clear_cart {
+          position: relative;
+          top: 5px;
+          left: 50px;
+          height: 45px;
+          width: 125px;
+          border-radius: 5px;
+          border-color: rgb(0, 0, 0);
+          background-color: rgb(201, 255, 201);
+          font-family: Gabriola;
+          font-size: 25px;
+        }
+        #clear_cart:hover {
+          position: relative;
+          top: 5px;
+          left: 50px;
+          height: 45px;
+          width: 125px;
+          border-radius: 5px;
+          border-color: rgb(0, 0, 0);
+          background-color: (114, 243, 114);
+          font-family: Gabriola;
+          font-size: 25px;
+        }
+        #wrapper {
+          width: 500px;
+          height: 1000px;
+          margin: 10px;
+          position: relative;
+          top: -65px;
+        }
+      </style>
+
+      <div id="cart_content"></div>
+    </div>
+
+    <script src="./js/goods.js"></script>
+    <script src="./js/basket.js"></script>
+    <div class="container-fluid footer p-0" id="contacts">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h3 class="pb-3 pt-5">Contacts</h3>
+          <style>
+            #googleMap iframe {
+              width: 1100px;
+              height: 450px;
+              position: relative;
+              left: -293px;
+            }
+            #googleMap {
+              width: 100%;
+              height: 450px;
+              background-color: green;
+            }
+            #googleMap img {
+height: 85px;
+width: 375px;
+position: relative;
+top: -155px;
+left: 735px;
+            }
+            #googleMap a {
+              font-size: 30px;
+              left: 370px;
+              position: relative;
+              top: -445px;
+              font-family: Bahnschrift;
+color: #b6ff89;
+            }
+            #telegram a{
+              font-size: 30px;
+              left: 565px;
+              position: relative;
+              top: -455px;
+              font-family: Bahnschrift;
+            }
+            #youtube a{
+              font-size: 30px;
+              left: 565px;
+              position: relative;
+              top: -440px;
+              font-family: Bahnschrift;
+            }
+            #googleMap h1 {
+              font-size: 35px;
+              left: 560px;
+              position: relative;
+              top: -435px;
+              font-family: Bahnschrift; 
+              color: white;
+            }
+          </style>
+          <div id="googleMap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.240870685403!2d36.23463281571539!3d50.006840379416566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a0e6dffdbb8b%3A0xf209264ca6ae97a1!2sSumska%20St%2C%2047%2C%20Kharkiv%2C%20Kharkivs&#39;ka%20oblast%2C%20Ukraine%2C%2061000!5e0!3m2!1sen!2sge!4v1657324154038!5m2!1sen!2sge"
+              width="100%"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <strong><h1>Контакты для связи :</h1></strong>
+            <img src="./images/Logo.png" alt="">
+            <a href="https://www.instagram.com/">Instagram / Подпишись!</a>
+            <div id="telegram"><a href="https://telegram.org/">Telegram / Следи за новостями!</a></div>
+            <div id="youtube"><a href="https://www.youtube.com/">YouTube / Смотри наши ролики!</a></div>
+          </div>
+    <a href="#myPage" title="To Top" id="totop">
+      <i class="fas fa-heart"></i>
+    </a>
+    <script src="./script.js"></script>
+  </body>
+</html>

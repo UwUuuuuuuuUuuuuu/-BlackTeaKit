@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Harry Potter and the Philosopher’s Stone",
+    "author": "Joanne Rowling",
+    "cost": 190,
+    "quantity": 0
+  },
+  {
+    "title": "Death on the Nile",
+    "author": "Agatha Christie",
+    "cost": 120,
+    "quantity": 0
+  },
+  {
+    "title": "The Lord of the Rings",
+    "author": "John Ronald Reuel Tolkien",
+    "cost": 600,
+    "quantity": 0
+  },
+  {
+    "title": "1",
+    "author": "John Ronald Reuel Tolkien",
+    "cost": 700,
+    "quantity": 0
+  },
+  {
+    "title": "2",
+    "author": "John Ronald Reuel Tolkien",
+    "cost": 800,
+    "quantity": 0
+  },  {
+    "title": "3",
+    "author": "John Ronald Reuel Tolkien",
+    "cost": 900,
+    "quantity": 0
+  }
+]
